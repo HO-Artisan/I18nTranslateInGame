@@ -9,7 +9,6 @@
   "contact": {},
 
   "license": "GNU AGPL 3.0",
-  "icon": "icon.png",
 
   "environment": "*",
   "entrypoints": {},
