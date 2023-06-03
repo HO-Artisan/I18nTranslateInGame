@@ -3,7 +3,6 @@ package ho.artisan.itig.screen;
 import ho.artisan.itig.util.ItemInfoGetter;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.EditBoxWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
@@ -11,10 +10,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
+import javax.annotation.Nonnull;
 
 public class ITIGScreen extends Screen {
-    //按钮高和宽
+    //按钮的高和宽
     private static final int BUTTON_HEIGHT = 20;
     private static final int BUTTON_WIDTH = 95;
 
@@ -40,24 +39,23 @@ public class ITIGScreen extends Screen {
     String itemKey;
     String sourceText;
     String itemDisplayName;
-    String stringID;
 
-    protected ITIGScreen(Text title) {
-        super(title);
+    protected ITIGScreen(@NotNull ItemInfoGetter info) {
+        super(Text.translatable(""));
+        this.itemInfoGetter = info;
 
-        this.item = itemInfoGetter.getItemStack(); //拿的物品
-        this.modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品所屬的模組ID
-        this.itemKey = item.getTranslationKey(); //物品的命名空間
-        this.sourceText = itemInfoGetter.getSourceText();
-        this.itemDisplayName = item.getName().getString(); //物品的顯示名稱
-        this.stringID = itemInfoGetter.getStringID();
+        this.item = info.getItemStack(); //玩家拿着的物品
+        this.modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
+        this.itemKey = item.getTranslationKey(); //物品的翻译键
+        this.itemDisplayName = item.getName().getString(); //物品目前所显示的名称
+        this.sourceText = info.getSourceText();
     }
 
     @Override
     protected void init() {
         //确认按钮
         this.addDrawableChild(new ButtonWidget((this.width / 2 + 50), (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, OK_BUTTON_TEXT, button -> {
-                    //先不写，让Og来（
+                    //不知道写什么，让Og干吧（
                 }));
         //取消按钮
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
@@ -109,7 +107,7 @@ public class ITIGScreen extends Screen {
     }
 
     @Override
-    public void render(@NonNull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+    public void render(@Nonnull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
 
         int height = (this.height / 2);
