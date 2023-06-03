@@ -26,8 +26,8 @@ public class ITIGScreen extends Screen {
     public static final Text CANCEL_BUTTON_TEXT = Text.translatable("gui.igit.button.cancel");
 
     //其他的文本
-    public static final Text TITLE_TEXT = Text.translatable("gui.igit.title");
-    public static final Text ORIGINAL_ARTICLE_TEXT = Text.translatable("gui.igit.screen.original_article");
+    public static final Text TITLE_TEXT = Text.translatable("gui.igit.screen.title");
+    public static final Text ORIGINAL_ARTICLE_TEXT = Text.translatable("gui.igit.screen.original_text");
     public static final Text LANG_KEY_TEXT = Text.translatable("gui.igit.screen.lang_key");
     public static final Text DISPLAY_NAME_TEXT = Text.translatable("gui.igit.screen.display_name");
     public static final Text PARENT_MOD_ID_TEXT = Text.translatable("gui.igit.screen.parent_mod_id");

@@ -1,0 +1,10 @@
+{
+  "gui.igit.button.ok": "确定",
+  "gui.igit.button.cancel": "取消",
+
+  "gui.igit.screen.title": "游戏内翻译屏幕",
+  "gui.igit.screen.original_text": "原文本：",
+  "gui.igit.screen.lang_key": "语言键：",
+  "gui.igit.screen.display_name": "显示名称：",
+  "gui.igit.screen.parent_mod_id": "所属模组MODID："
+}

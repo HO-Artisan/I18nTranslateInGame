@@ -1,3 +1,10 @@
 {
-  "item.examplemod.example_item": "Example Item"
+  "gui.igit.button.ok": "OK",
+  "gui.igit.button.cancel": "Cancel",
+
+  "gui.igit.screen.title": "In Game Translation Screen",
+  "gui.igit.screen.original_text": "Original Text: ",
+  "gui.igit.screen.lang_key": "Language Key: ",
+  "gui.igit.screen.display_name": "Display Name: ",
+  "gui.igit.screen.parent_mod_id": "Parent Mod ID: "
 }
