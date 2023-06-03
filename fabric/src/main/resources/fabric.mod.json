@@ -2,22 +2,26 @@
   "schemaVersion": 1,
   "id": "itig",
   "version": "${version}",
-
   "name": "I18n Translate In Game",
-  "description": "",
-  "authors": [],
-  "contact": {},
-
-  "license": "GNU AGPL 3.0",
-
-  "environment": "*",
-  "entrypoints": {},
-  "mixins": [
-    "itig.mixins.json",
-    "itig-common.mixins.json"
+  "description": "I18n Translate In Game",
+  "authors": [
+    "HO-Artisan"
   ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "Insert License Here",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ho.artisan.itig.fabric.I18nTranslateInGameFabric"
+    ]
+  },
   "depends": {
-    "fabricloader": ">=0.14.21",
-    "minecraft": ">=1.19.2"
+    "fabric": "*",
+    "minecraft": "1.19.x",
+    "architectury": ">=6.2.43"
   }
 }

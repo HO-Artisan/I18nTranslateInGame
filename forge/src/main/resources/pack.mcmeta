@@ -1,8 +1,6 @@
 {
   "pack": {
-    "description": "itig resources",
-    "pack_format": 9,
-    "forge:resource_pack_format": 9,
-    "forge:data_pack_format": 10
+    "description": "I18n Translate In Game",
+    "pack_format": 9
   }
 }
