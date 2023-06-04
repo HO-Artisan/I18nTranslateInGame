@@ -1,5 +1,6 @@
 package ho.artisan.itig.screen;
 
+import ho.artisan.itig.I18nTranslateInGame;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -7,9 +8,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 
 public class ITIGScreen extends Screen {
-    public static final Identifier TRANSLATION_SCREEN_BACKGROUND = new Identifier("itig:textures/translation_screen.png");
+    //背景图片
+    public static final Identifier TRANSLATION_SCREEN_BACKGROUND = I18nTranslateInGame.getId("textures/translation_screen.png");
 
     //按钮的高和宽
     public static final int BUTTON_HEIGHT = 20;
@@ -42,7 +42,7 @@ public class ITIGScreen extends Screen {
     ItemStack item = player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
     String modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
     String itemKey = item.getTranslationKey(); //物品的翻译键
-    String sourceText = item.getName().getString(); //应该是英文原文，但是我现在想不出怎么实现（
+    String sourceText = item.getName().getString(); //应该是英文原文，但是目前只能显示游戏目前语言名称
     String itemDisplayName = item.getName().getString(); //物品目前所显示的名称
 
     public ITIGScreen() {
@@ -60,7 +60,7 @@ public class ITIGScreen extends Screen {
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
 
         //文本框及其里面提示
-        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 50, (this.height / 2) + 10, 180, 20, Text.of(TRANSLATION_EDIT_BOX_TEXT.getString())) {
+        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.of(TRANSLATION_EDIT_BOX_TEXT.getString())) {
             {
                 setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
@@ -107,30 +107,36 @@ public class ITIGScreen extends Screen {
 
     @Override
     public void render(@Nonnull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        //背景渲染，但是好像有点问题（？
         this.renderBackground(matrixStack);
         this.client.getTextureManager().bindTexture(TRANSLATION_SCREEN_BACKGROUND);
 
         int height = (this.height / 2);
         int TextColor = 0xFFFFFF;
+        //界面文本
         String ORIGINAL_TEXT = ORIGINAL_ARTICLE_TEXT.getString() + sourceText;
         String LANG_KEY = LANG_KEY_TEXT.getString() + itemKey;
         String DISPLAY_NAME = DISPLAY_NAME_TEXT.getString() + itemDisplayName;
         String PARENT_MODID = PARENT_MOD_ID_TEXT.getString() + modId;
 
+        //文本渲染
         this.textRenderer.draw(matrixStack, TITLE_TEXT.getString(), this.width / (float) 2 - this.textRenderer.getWidth(TITLE_TEXT) / (float) 2, height - 105, -65536);
         this.textRenderer.draw(matrixStack, ORIGINAL_TEXT, this.width / (float) 2 - this.textRenderer.getWidth(ORIGINAL_TEXT) / (float) 2, height - 80, TextColor);
         this.textRenderer.draw(matrixStack, LANG_KEY, this.width / (float) 2 - this.textRenderer.getWidth(LANG_KEY) / (float) 2, height - 65, TextColor);
         this.textRenderer.draw(matrixStack, DISPLAY_NAME, this.width / (float) 2 - this.textRenderer.getWidth(DISPLAY_NAME) / (float) 2, height - 50, TextColor);
         this.textRenderer.draw(matrixStack, PARENT_MODID, this.width / (float) 2 - this.textRenderer.getWidth(PARENT_MODID) / (float) 2, height - 35, TextColor);
 
-        TRANSLATION_EDIT_BOX.render(matrixStack, mouseX, mouseY, partialTicks);//渲染文字框
+        //文本框渲染
+        TRANSLATION_EDIT_BOX.render(matrixStack, mouseX, mouseY, partialTicks);
 
+        //标题渲染
         drawCenteredText(matrixStack, this.textRenderer, this.title.getString(), this.width / 2, 8, 0xFFFFFF);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
     }
 
     @Override
     public void removed() {
-        super.removed(); //關閉此Gui
+        //关闭界面
+        super.removed();
     }
 }
