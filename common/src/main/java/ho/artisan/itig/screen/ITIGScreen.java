@@ -66,7 +66,7 @@ public class ITIGScreen extends Screen {
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
 
         //文本框及其里面提示
-        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.translatable("gui.igit.edit_box.hint")) {
+        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.of(new TranslatableTextContent("gui.igit.edit_box.hint").toString())) {
             {
                 setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
