@@ -4,10 +4,12 @@ import dev.architectury.event.events.client.ClientTooltipEvent;
 import net.minecraft.text.Text;
 
 public class ITIGTooltips {
+    public static final Text ORIGINAL_TEXT = Text.translatable("gui.igit.screen.original_text");
+    public static final Text LANG_KEY_TEXT = Text.translatable("gui.igit.screen.lang_key");
     public static void clientInit() {
         ClientTooltipEvent.ITEM.register((stack, lines, flag) -> {
-            lines.add(Text.of(Text.translatable("gui.igit.screen.original_text").getString() + stack.getName().getString()));
-            lines.add(Text.of(Text.translatable("gui.igit.screen.lang_key").getString() + stack.getTranslationKey()));
+            lines.add(Text.of(ORIGINAL_TEXT.getString() + stack.getName().getString()));
+            lines.add(Text.of(LANG_KEY_TEXT.getString() + stack.getTranslationKey()));
         });
     }
 }
