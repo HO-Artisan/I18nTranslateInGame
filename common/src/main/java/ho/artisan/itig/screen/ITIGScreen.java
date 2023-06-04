@@ -9,6 +9,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextContent;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
@@ -60,7 +62,7 @@ public class ITIGScreen extends Screen {
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
 
         //文本框及其里面提示
-        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.of(TRANSLATION_EDIT_BOX_TEXT.getString())) {
+        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.translatable("gui.igit.edit_box.hint")) {
             {
                 setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
@@ -110,6 +112,7 @@ public class ITIGScreen extends Screen {
         //背景渲染，但是好像有点问题（？
         this.renderBackground(matrixStack);
         this.client.getTextureManager().bindTexture(TRANSLATION_SCREEN_BACKGROUND);
+        drawTexture(matrixStack, this.width / 2 - 150, 10, 0, 0, 405, 227, 405, 227);
 
         int height = (this.height / 2);
         int TextColor = 0xFFFFFF;
