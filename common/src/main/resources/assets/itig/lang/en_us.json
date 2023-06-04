@@ -6,5 +6,8 @@
   "gui.igit.screen.original_text": "Original Text: ",
   "gui.igit.screen.lang_key": "Language Key: ",
   "gui.igit.screen.display_name": "Display Name: ",
-  "gui.igit.screen.parent_mod_id": "Parent Mod ID: "
+  "gui.igit.screen.parent_mod_id": "Parent Mod ID: ",
+
+  "key.igit.categories": "I18n Translation In Game",
+  "key.igit.translation_screen": "Open In Game Translation Screen"
 }
