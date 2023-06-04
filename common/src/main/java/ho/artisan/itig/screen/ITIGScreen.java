@@ -9,12 +9,15 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
 public class ITIGScreen extends Screen {
+    public static final Identifier TRANSLATION_SCREEN_BACKGROUND = new Identifier("itig:textures/translation_screen.png");
+
     //按钮的高和宽
     public static final int BUTTON_HEIGHT = 20;
     public static final int BUTTON_WIDTH = 95;
@@ -103,15 +106,16 @@ public class ITIGScreen extends Screen {
     @Override
     public void render(@Nonnull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
+        this.client.getTextureManager().bindTexture(TRANSLATION_SCREEN_BACKGROUND);
 
         int height = (this.height / 2);
         int TextColor = 0xFFFFFF;
-        String ORIGINAL_TEXT = ORIGINAL_ARTICLE_TEXT + sourceText;
-        String LANG_KEY = LANG_KEY_TEXT + itemKey;
-        String DISPLAY_NAME = DISPLAY_NAME_TEXT + itemDisplayName;
-        String PARENT_MODID = PARENT_MOD_ID_TEXT + modId;
+        String ORIGINAL_TEXT = ORIGINAL_ARTICLE_TEXT.getString() + sourceText;
+        String LANG_KEY = LANG_KEY_TEXT.getString() + itemKey;
+        String DISPLAY_NAME = DISPLAY_NAME_TEXT.getString() + itemDisplayName;
+        String PARENT_MODID = PARENT_MOD_ID_TEXT.getString() + modId;
 
-        this.textRenderer.draw(matrixStack, TITLE_TEXT, this.width / (float) 2 - this.textRenderer.getWidth(TITLE_TEXT) / (float) 2, height - 105, -65536);
+        this.textRenderer.draw(matrixStack, TITLE_TEXT.getString(), this.width / (float) 2 - this.textRenderer.getWidth(TITLE_TEXT) / (float) 2, height - 105, -65536);
         this.textRenderer.draw(matrixStack, ORIGINAL_TEXT, this.width / (float) 2 - this.textRenderer.getWidth(ORIGINAL_TEXT) / (float) 2, height - 80, TextColor);
         this.textRenderer.draw(matrixStack, LANG_KEY, this.width / (float) 2 - this.textRenderer.getWidth(LANG_KEY) / (float) 2, height - 65, TextColor);
         this.textRenderer.draw(matrixStack, DISPLAY_NAME, this.width / (float) 2 - this.textRenderer.getWidth(DISPLAY_NAME) / (float) 2, height - 50, TextColor);
