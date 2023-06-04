@@ -1,6 +1,5 @@
 package ho.artisan.itig.screen;
 
-import ho.artisan.itig.util.ItemInfoGetter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -50,6 +49,7 @@ public class ITIGScreen extends Screen {
 
     @Override
     protected void init() {
+        this.client.keyboard.setRepeatEvents(true);
         //确认按钮
         this.addDrawableChild(new ButtonWidget((this.width / 2 + 50), (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, OK_BUTTON_TEXT, button -> {
                     //不知道写什么，让Og干吧（
@@ -58,7 +58,7 @@ public class ITIGScreen extends Screen {
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
 
         //文本框及其里面提示
-        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 50, (this.height / 2) + 10, 120, 20, TRANSLATION_EDIT_BOX_TEXT) {
+        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 50, (this.height / 2) + 10, 180, 20, TRANSLATION_EDIT_BOX_TEXT) {
             {
                 setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
