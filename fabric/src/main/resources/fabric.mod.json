@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "ho.artisan.itig.fabric.I18nTranslateInGameFabric"
+    ],
+    "client": [
+      "ho.artisan.itig.fabric.I18nTranslateInGameClientFabric"
     ]
   },
   "depends": {
