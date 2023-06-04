@@ -8,6 +8,5 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = I18nTranslateInGame.MOD_ID)
 public class ITIGConfigScreen implements ConfigData {
     public boolean seeTooltip = true;
-    @ConfigEntry.Gui.Excluded
     public String deeplToken = "";
 }
