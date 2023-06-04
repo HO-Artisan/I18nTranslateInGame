@@ -4,7 +4,7 @@ import ho.artisan.itig.config.ITIGConfig;
 import ho.artisan.itig.keybind.ITIGKeyBinding;
 import ho.artisan.itig.tooltip.ITIGTooltips;
 
-public class I18nTranslationInGameClient {
+public class ITIGModClient {
     public static void clientInit() {
         if (!ITIGConfig.getConfig().seeTooltip) {
             ITIGTooltips.clientInit();

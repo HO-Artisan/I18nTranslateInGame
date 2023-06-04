@@ -16,15 +16,16 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "ho.artisan.itig.fabric.I18nTranslateInGameFabric"
+      "ho.artisan.itig.fabric.ITIGModFabric"
     ],
     "client": [
-      "ho.artisan.itig.fabric.I18nTranslateInGameClientFabric"
+      "ho.artisan.itig.fabric.ITIGModClientFabric"
     ]
   },
   "depends": {
     "fabric": "*",
     "minecraft": "1.19.x",
-    "architectury": ">=6.2.43"
+    "architectury": ">=6.0",
+    "cloth-config": ">=8.0"
   }
 }

@@ -1,7 +1,6 @@
 package ho.artisan.itig.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import ho.artisan.itig.I18nTranslateInGame;
+import ho.artisan.itig.ITIGMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -18,7 +17,7 @@ import javax.annotation.Nonnull;
 
 public class ITIGScreen extends Screen {
     //背景图片
-    public static final Identifier TRANSLATION_SCREEN_BACKGROUND = I18nTranslateInGame.getId("textures/translation_screen.png");
+    public static final Identifier TRANSLATION_SCREEN_BACKGROUND = ITIGMod.getId("textures/translation_screen.png");
     public static final int BACKGROUND_WIDTH = 405;
     public static final int BACKGROUND_HEIGHT = 227;
 

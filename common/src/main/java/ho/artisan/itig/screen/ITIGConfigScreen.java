@@ -1,11 +1,10 @@
 package ho.artisan.itig.screen;
 
-import ho.artisan.itig.I18nTranslateInGame;
+import ho.artisan.itig.ITIGMod;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-@Config(name = I18nTranslateInGame.MOD_ID)
+@Config(name = ITIGMod.MOD_ID)
 public class ITIGConfigScreen implements ConfigData {
     public boolean seeTooltip = true;
     public String deeplToken = "";

@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Supplier;
 
-public class I18nTranslateInGame {
+public class ITIGMod {
     public static final String MOD_ID = "itig";
 
     public static final Supplier<Registries> REGISTRIES = Suppliers.memoize(() -> Registries.get(MOD_ID));

@@ -30,6 +30,13 @@ side = "BOTH"
 [[dependencies.itig]]
 modId = "architectury"
 mandatory = true
-versionRange = "[6.2.43,)"
+versionRange = "[6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.itig]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[8,)"
 ordering = "AFTER"
 side = "BOTH"

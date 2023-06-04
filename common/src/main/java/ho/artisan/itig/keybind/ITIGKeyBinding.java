@@ -9,7 +9,7 @@ import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 public class ITIGKeyBinding {
-    //按键绑定之后再说（
+    //按键绑定
     public static final KeyBinding TRANSLATION_SCREEN_KEYBIND = new KeyBinding("key.igit.translation_screen", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "key.igit.categories");
 
     public static void clientInit() {
