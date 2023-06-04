@@ -3,7 +3,6 @@ package ho.artisan.itig.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import ho.artisan.itig.I18nTranslateInGame;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -11,8 +10,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextContent;
-import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
@@ -66,7 +63,7 @@ public class ITIGScreen extends Screen {
         this.addDrawableChild(new ButtonWidget((this.width - 100) / 2 - BUTTON_WIDTH, (this.height / 2) + 80, BUTTON_WIDTH, BUTTON_HEIGHT, CANCEL_BUTTON_TEXT, button -> this.client.setScreen(null)));
 
         //文本框及其里面提示
-        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, Text.of(new TranslatableTextContent("gui.igit.edit_box.hint").toString())) {
+        TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 100, (this.height / 2) + 10, 200, 20, TRANSLATION_EDIT_BOX_TEXT) {
             {
                 setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
@@ -114,6 +111,7 @@ public class ITIGScreen extends Screen {
     @Override
     public void render(@Nonnull MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         //背景渲染，但是好像有点问题（？
+        /*
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         MinecraftClient.getInstance().getTextureManager().bindTexture(TRANSLATION_SCREEN_BACKGROUND);
@@ -121,6 +119,7 @@ public class ITIGScreen extends Screen {
         int l = (this.height - this.BACKGROUND_HEIGHT) / 2;
         drawTexture(matrixStack, k, l, 0, 0, this.BACKGROUND_WIDTH, this.BACKGROUND_HEIGHT, this.BACKGROUND_WIDTH, this.BACKGROUND_HEIGHT);
         RenderSystem.disableBlend();
+         */
 
         this.renderBackground(matrixStack);
 

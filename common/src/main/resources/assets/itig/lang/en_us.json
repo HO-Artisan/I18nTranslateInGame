@@ -8,6 +8,8 @@
   "gui.igit.screen.display_name": "Display Name: ",
   "gui.igit.screen.parent_mod_id": "Parent Mod ID: ",
 
+  "gui.igit.edit_box.hint": "Please enter text content here.",
+
   "key.igit.categories": "I18n Translation In Game",
   "key.igit.translation_screen": "Open In Game Translation Screen"
 }
