@@ -1,10 +1,12 @@
 package ho.artisan.itig.screen;
 
 import ho.artisan.itig.util.ItemInfoGetter;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.registry.Registry;
@@ -14,12 +16,12 @@ import javax.annotation.Nonnull;
 
 public class ITIGScreen extends Screen {
     //按钮的高和宽
-    private static final int BUTTON_HEIGHT = 20;
-    private static final int BUTTON_WIDTH = 95;
+    public static final int BUTTON_HEIGHT = 20;
+    public static final int BUTTON_WIDTH = 95;
 
     //文本框及其提示文本
-    private static TextFieldWidget TRANSLATION_EDIT_BOX;
-    private static final Text TRANSLATION_EDIT_BOX_TEXT = Text.translatable("gui.igit.edit_box.hint");
+    public static TextFieldWidget TRANSLATION_EDIT_BOX;
+    public static final Text TRANSLATION_EDIT_BOX_TEXT = Text.translatable("gui.igit.edit_box.hint");
 
     //按钮文本
     public static final Text OK_BUTTON_TEXT = Text.translatable("gui.igit.button.ok");
@@ -32,23 +34,15 @@ public class ITIGScreen extends Screen {
     public static final Text DISPLAY_NAME_TEXT = Text.translatable("gui.igit.screen.display_name");
     public static final Text PARENT_MOD_ID_TEXT = Text.translatable("gui.igit.screen.parent_mod_id");
 
-    ItemInfoGetter itemInfoGetter;
+    PlayerEntity player = MinecraftClient.getInstance().player;
+    ItemStack item = player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
+    String modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
+    String itemKey = item.getTranslationKey(); //物品的翻译键
+    String sourceText = item.getName().getString(); //应该是英文原文，但是我现在想不出怎么实现（
+    String itemDisplayName = item.getName().getString(); //物品目前所显示的名称
 
-    ItemStack item;
-    String modId;
-    String itemKey;
-    String sourceText;
-    String itemDisplayName;
-
-    protected ITIGScreen(@NotNull ItemInfoGetter info) {
+    public ITIGScreen() {
         super(Text.translatable(""));
-        this.itemInfoGetter = info;
-
-        this.item = info.getItemStack(); //玩家拿着的物品
-        this.modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
-        this.itemKey = item.getTranslationKey(); //物品的翻译键
-        this.itemDisplayName = item.getName().getString(); //物品目前所显示的名称
-        this.sourceText = info.getSourceText();
     }
 
     @Override
