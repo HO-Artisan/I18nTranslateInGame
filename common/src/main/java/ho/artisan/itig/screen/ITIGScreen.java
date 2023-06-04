@@ -82,7 +82,7 @@ public class ITIGScreen extends Screen {
                     setSuggestion(null);
             }
         };
-        this.addDrawable(TRANSLATION_EDIT_BOX);
+        this.addSelectableChild(TRANSLATION_EDIT_BOX);
         TRANSLATION_EDIT_BOX.setMaxLength(32767);
     }
 
