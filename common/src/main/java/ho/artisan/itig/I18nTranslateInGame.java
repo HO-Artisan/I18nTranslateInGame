@@ -1,6 +1,7 @@
 package ho.artisan.itig;
 
 import com.google.common.base.Suppliers;
+import dev.architectury.event.events.client.ClientTooltipEvent;
 import dev.architectury.registry.registries.Registries;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;

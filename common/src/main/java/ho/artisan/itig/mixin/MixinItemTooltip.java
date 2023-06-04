@@ -15,13 +15,12 @@ import java.util.List;
 
 @Mixin(Item.class)
 public class MixinItemTooltip {
-
+/*
     @Inject(method = "appendTooltip", at = @At("RETURN"))
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
-
         tooltip.add(Text.of("原文：" + stack.getName()));
         tooltip.add(Text.of("键：" + stack.getTranslationKey()));
-
     }
+ */
 
 }
