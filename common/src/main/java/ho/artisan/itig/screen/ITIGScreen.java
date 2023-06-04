@@ -60,13 +60,13 @@ public class ITIGScreen extends Screen {
         //文本框及其里面提示
         TRANSLATION_EDIT_BOX = new TextFieldWidget(this.textRenderer, (this.width / 2) - 50, (this.height / 2) + 10, 120, 20, TRANSLATION_EDIT_BOX_TEXT) {
             {
-                setSuggestion(String.valueOf(TRANSLATION_EDIT_BOX_TEXT));
+                setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
             }
             @Override
             public void write(@NotNull String text) {
                 super.write(text);
                 if (getText().isEmpty())
-                    setSuggestion(String.valueOf(TRANSLATION_EDIT_BOX_TEXT));
+                    setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
                 else
                     setSuggestion(null);
             }
@@ -75,7 +75,7 @@ public class ITIGScreen extends Screen {
             public void setCursor(int pos) {
                 super.setCursor(pos);
                 if (getText().isEmpty())
-                    setSuggestion(String.valueOf(TRANSLATION_EDIT_BOX_TEXT));
+                    setSuggestion(TRANSLATION_EDIT_BOX_TEXT.getString());
                 else
                     setSuggestion(null);
             }
