@@ -47,7 +47,7 @@ public class ITIGScreen extends Screen {
     ItemStack item = player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
     String modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
     String itemKey = item.getTranslationKey(); //物品的翻译键
-    String sourceText = TranslationUtil.getSourceTranslation(item).getString(); //应该是英文原文，但是目前只能显示游戏目前语言名称
+    String sourceText = TranslationUtil.getSourceTranslation(item).toString(); //应该是英文原文，但是目前只能显示游戏目前语言名称
     String itemDisplayName = item.getName().getString(); //物品目前所显示的名称
 
     public ITIGScreen() {
@@ -128,7 +128,7 @@ public class ITIGScreen extends Screen {
         int height = (this.height / 2);
         int TextColor = 0xFFFFFF;
         //界面文本
-        String ORIGINAL_TEXT = ORIGINAL_ARTICLE_TEXT.getString() + Arrays.toString(sourceText.getBytes(StandardCharsets.UTF_8));
+        String ORIGINAL_TEXT = ORIGINAL_ARTICLE_TEXT.getString() + sourceText;
         String LANG_KEY = LANG_KEY_TEXT.getString() + itemKey;
         String DISPLAY_NAME = DISPLAY_NAME_TEXT.getString() + itemDisplayName;
         String PARENT_MODID = PARENT_MOD_ID_TEXT.getString() + modId;
