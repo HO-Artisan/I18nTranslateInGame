@@ -2,21 +2,15 @@ package ho.artisan.itig.screen;
 
 import ho.artisan.itig.ITIGMod;
 import ho.artisan.itig.util.TranslationUtil;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class ITIGScreen extends Screen {
     //背景图片

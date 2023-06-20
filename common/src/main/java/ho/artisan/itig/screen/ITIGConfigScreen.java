@@ -1,6 +1,7 @@
 package ho.artisan.itig.screen;
 
 import ho.artisan.itig.ITIGMod;
+
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 

@@ -1,8 +1,10 @@
 package ho.artisan.itig.tooltip;
 
 import dev.architectury.event.events.client.ClientTooltipEvent;
+
 import ho.artisan.itig.config.ITIGConfig;
 import ho.artisan.itig.util.TranslationUtil;
+
 import net.minecraft.text.Text;
 
 public class ITIGTooltips {
