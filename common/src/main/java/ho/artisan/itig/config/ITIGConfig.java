@@ -2,17 +2,17 @@ package ho.artisan.itig.config;
 
 import dev.architectury.platform.Platform;
 import ho.artisan.itig.ITIGMod;
-import ho.artisan.itig.screen.ITIGConfigScreen;
+import ho.artisan.itig.gui.ModConfigScreen;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 public class ITIGConfig {
-    public static ITIGConfigScreen configScreen;
+    public static ModConfigScreen configScreen;
 
-    public static ITIGConfigScreen getConfig() {
+    public static ModConfigScreen getConfig() {
         if (configScreen == null) {
-            AutoConfig.register(ITIGConfigScreen.class, GsonConfigSerializer::new);
-            configScreen = AutoConfig.getConfigHolder(ITIGConfigScreen.class).getConfig();
+            AutoConfig.register(ModConfigScreen.class, GsonConfigSerializer::new);
+            configScreen = AutoConfig.getConfigHolder(ModConfigScreen.class).getConfig();
         }
         return configScreen;
     }
@@ -22,6 +22,6 @@ public class ITIGConfig {
     }
 
     public static void setConfigScreen() {
-        Platform.getMod(ITIGMod.MOD_ID).registerConfigurationScreen(parent -> AutoConfig.getConfigScreen(ITIGConfigScreen.class, parent).get());
+        Platform.getMod(ITIGMod.MOD_ID).registerConfigurationScreen(parent -> AutoConfig.getConfigScreen(ModConfigScreen.class, parent).get());
     }
 }

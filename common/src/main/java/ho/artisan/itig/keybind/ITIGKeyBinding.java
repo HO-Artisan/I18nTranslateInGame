@@ -2,7 +2,7 @@ package ho.artisan.itig.keybind;
 
 import dev.architectury.event.events.client.ClientTickEvent;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
-import ho.artisan.itig.screen.ITIGScreen;
+import ho.artisan.itig.gui.TranslationInGameScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -16,7 +16,7 @@ public class ITIGKeyBinding {
 
         ClientTickEvent.CLIENT_POST.register(client -> {
             if (TRANSLATION_SCREEN_KEYBIND.wasPressed()) {
-                client.setScreen(new ITIGScreen());
+                client.setScreen(new TranslationInGameScreen());
             }
         });
     }

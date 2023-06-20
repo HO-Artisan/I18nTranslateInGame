@@ -1,4 +1,4 @@
-package ho.artisan.itig.tooltip;
+package ho.artisan.itig.gui.tooltip;
 
 import dev.architectury.event.events.client.ClientTooltipEvent;
 
@@ -7,7 +7,7 @@ import ho.artisan.itig.util.TranslationUtil;
 
 import net.minecraft.text.Text;
 
-public class ITIGTooltips {
+public class SubTranslationTooltips {
     public static final Text ORIGINAL_TEXT = Text.translatable("gui.igit.screen.original_text");
     public static final Text LANG_KEY_TEXT = Text.translatable("gui.igit.screen.lang_key");
     public static void clientInit() {

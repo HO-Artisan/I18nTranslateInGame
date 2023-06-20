@@ -1,4 +1,4 @@
-package ho.artisan.itig.screen;
+package ho.artisan.itig.gui;
 
 import ho.artisan.itig.ITIGMod;
 import ho.artisan.itig.util.TranslationUtil;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public class ITIGScreen extends Screen {
+public class TranslationInGameScreen extends Screen {
     //背景图片
     public static final Identifier TRANSLATION_SCREEN_BACKGROUND = ITIGMod.getId("textures/translation_screen.png");
     public static final int BACKGROUND_WIDTH = 405;
@@ -42,7 +42,7 @@ public class ITIGScreen extends Screen {
     String sourceText = TranslationUtil.getItemSourceText(); //物品的英文原文
     String itemDisplayName = TranslationUtil.getItemDisplayName(); //物品的显示名称
 
-    public ITIGScreen() {
+    public TranslationInGameScreen() {
         super(Text.translatable(""));
     }
 
