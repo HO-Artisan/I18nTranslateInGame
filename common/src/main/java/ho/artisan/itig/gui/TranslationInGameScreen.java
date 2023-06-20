@@ -39,7 +39,7 @@ public class TranslationInGameScreen extends Screen {
 
     String modId = TranslationUtil.getItemModId(); //物品的modid
     String itemKey = TranslationUtil.getItemTranslationKey(); //物品的翻译键
-    String sourceText = TranslationUtil.getItemSourceText(); //物品的英文原文
+    String sourceText = TranslationUtil.getSourceTranslation(TranslationUtil.getItemStack()).getString(); //物品的英文原文
     String itemDisplayName = TranslationUtil.getItemDisplayName(); //物品的显示名称
 
     public TranslationInGameScreen() {

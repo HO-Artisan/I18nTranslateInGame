@@ -23,11 +23,7 @@ public class TranslationUtil {
 
     public static ItemStack getItemStack() {
         PlayerEntity player = MinecraftClient.getInstance().player; //玩家
-        ItemStack item = null; //玩家拿着的物品
-        if (player != null) {
-            item = player.getMainHandStack().getItem().getDefaultStack();
-        }
-        return item;
+        return player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
     }
 
     public static String getItemModId() {
@@ -36,10 +32,6 @@ public class TranslationUtil {
 
     public static String getItemTranslationKey() {
         return getItemStack().getTranslationKey(); //物品的翻译键
-    }
-
-    public static String getItemSourceText() {
-        return TranslationUtil.getSourceTranslation(getItemStack()).getString(); //物品的英文原文
     }
 
     public static String getItemDisplayName() {
