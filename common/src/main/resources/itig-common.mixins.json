@@ -3,7 +3,8 @@
   "package": "ho.artisan.itig.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "MixinTitleScreen"
+    "LanguageManagerMixin",
+    "TitleScreenMixin"
   ],
   "mixins": [
   ],

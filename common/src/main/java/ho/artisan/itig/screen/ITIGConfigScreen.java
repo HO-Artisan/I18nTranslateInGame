@@ -6,6 +6,7 @@ import me.shedaniel.autoconfig.annotation.Config;
 
 @Config(name = ITIGMod.MOD_ID)
 public class ITIGConfigScreen implements ConfigData {
+    public String translatedLanguages = "en_us";
     public boolean seeTooltip = true;
     public String deeplToken = "";
 }
