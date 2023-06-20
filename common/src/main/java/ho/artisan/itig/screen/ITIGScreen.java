@@ -43,12 +43,10 @@ public class ITIGScreen extends Screen {
     public static final Text DISPLAY_NAME_TEXT = Text.translatable("gui.igit.screen.display_name");
     public static final Text PARENT_MOD_ID_TEXT = Text.translatable("gui.igit.screen.parent_mod_id");
 
-    PlayerEntity player = MinecraftClient.getInstance().player;
-    ItemStack item = player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
-    String modId = Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的id
-    String itemKey = item.getTranslationKey(); //物品的翻译键
-    String sourceText = TranslationUtil.getSourceTranslation(item).getString(); //英文原文
-    String itemDisplayName = item.getName().getString(); //物品目前所显示的名称
+    String modId = TranslationUtil.getItemModId(); //物品的modid
+    String itemKey = TranslationUtil.getItemTranslationKey(); //物品的翻译键
+    String sourceText = TranslationUtil.getItemSourceText(); //物品的英文原文
+    String itemDisplayName = TranslationUtil.getItemDisplayName(); //物品的显示名称
 
     public ITIGScreen() {
         super(Text.translatable(""));
