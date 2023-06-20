@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 public class SubTranslationTooltips {
     public static final Text ORIGINAL_TEXT = Text.translatable("gui.igit.screen.original_text");
     public static final Text LANG_KEY_TEXT = Text.translatable("gui.igit.screen.lang_key");
+    public static final String sourceText = TranslationUtil.getItemSourceText();
     public static void clientInit() {
         if (ITIGConfig.getConfig().tooltipVisibility) {
             tooltipsInit();
@@ -18,7 +19,7 @@ public class SubTranslationTooltips {
 
     public static void tooltipsInit() {
         ClientTooltipEvent.ITEM.register((stack, lines, flag) -> {
-            lines.add(Text.of(ORIGINAL_TEXT.getString() + TranslationUtil.getSourceTranslation(stack).getString()));
+            lines.add(Text.of(ORIGINAL_TEXT.getString() + sourceText));
             lines.add(Text.of(LANG_KEY_TEXT.getString() + stack.getTranslationKey()));
         });
     }

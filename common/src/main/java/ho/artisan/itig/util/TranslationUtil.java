@@ -21,22 +21,28 @@ public class TranslationUtil {
         return itemStack.getName();
     }
 
-    private static final PlayerEntity player = MinecraftClient.getInstance().player; //玩家
-    private static final ItemStack item = player.getMainHandStack().getItem().getDefaultStack(); //玩家拿着的物品
+    public static ItemStack getItemStack() {
+        PlayerEntity player = MinecraftClient.getInstance().player; //玩家
+        ItemStack item = null; //玩家拿着的物品
+        if (player != null) {
+            item = player.getMainHandStack().getItem().getDefaultStack();
+        }
+        return item;
+    }
 
     public static String getItemModId() {
-        return Registry.ITEM.getId(item.getItem()).getNamespace(); //物品的modid
+        return Registry.ITEM.getId(getItemStack().getItem()).getNamespace(); //物品的modid
     }
 
     public static String getItemTranslationKey() {
-        return item.getTranslationKey(); //物品的翻译键
+        return getItemStack().getTranslationKey(); //物品的翻译键
     }
 
     public static String getItemSourceText() {
-        return TranslationUtil.getSourceTranslation(item).getString(); //物品的英文原文
+        return TranslationUtil.getSourceTranslation(getItemStack()).getString(); //物品的英文原文
     }
 
     public static String getItemDisplayName() {
-        return item.getName().getString(); //物品的显示名称
+        return getItemStack().getName().getString(); //物品的显示名称
     }
 }
